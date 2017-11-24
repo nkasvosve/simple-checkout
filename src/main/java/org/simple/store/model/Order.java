@@ -19,11 +19,31 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    public void addOrderItem(OrderItem item){
-        if(item == null){
-            throw new IllegalArgumentException("NUll OrderItem found");
+    public void addOrderItem(OrderItem item) {
+        if (item == null) {
+            throw new IllegalArgumentException("Null OrderItem found");
         }
-        orderItems.add(item);
+
+        if (item.getProduct() == null) {
+            throw new IllegalArgumentException("Null OrderItem product found");
+        }
+
+        if (item.getCount() < 0) {
+            throw new IllegalArgumentException("Invalid OrderItem count found");
+        }
+
+        boolean found  = false;
+        for (OrderItem orderItem : orderItems) {
+            if (orderItem.getProduct().equals(item.getProduct())){
+                int current = orderItem.getCount();
+                int itemCount = item.getCount() + current;
+                orderItem.setCount(itemCount);
+                found = true;
+            }
+        }
+        if(!found) {
+            orderItems.add(item);
+        }
     }
 
     @Override
