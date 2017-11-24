@@ -1,8 +1,7 @@
 package org.simple.store.model;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,11 +12,14 @@ public class Order {
     private Set<OrderItem> orderItems = new HashSet<>();
 
     public Set<OrderItem> getOrderItems() {
-        return orderItems;
+        return Collections.unmodifiableSet(orderItems);
     }
 
     public void setOrderItems(Set<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public void addOrderItem(OrderItem item){
     }
 
     @Override
