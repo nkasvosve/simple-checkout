@@ -12,7 +12,10 @@ public class OrderItem {
     private BigDecimal total;
 
     public BigDecimal getTotal() {
-        return BigDecimal.ZERO;
+        if(product == null || count <=0) {
+            return BigDecimal.ZERO;
+        }
+        return product.getPrice().multiply(new BigDecimal(count)).setScale(2);
     }
 
     public Product getProduct() {
