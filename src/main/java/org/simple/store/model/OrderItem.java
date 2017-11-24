@@ -9,7 +9,6 @@ public class OrderItem {
 
     private Product product;
     private int count;
-    private BigDecimal total;
 
     public BigDecimal getTotal() {
         if(product == null || count <=0) {
