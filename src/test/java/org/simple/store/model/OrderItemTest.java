@@ -38,9 +38,9 @@ public class OrderItemTest {
         OrderItem orderItem = new OrderItem();
         orderItem.setCount(2);
         Product product = new Product();
-        product.setProductType(ProductType.ORANGE);
+        product.setProductType(ProductType.APPLE);
         product.setPrice(Constants.PRICES.get(product.getProductType()));
         orderItem.setProduct(product);
-        org.junit.Assert.assertEquals(new BigDecimal(".50"), orderItem.getTotal());
+        org.junit.Assert.assertEquals(new BigDecimal(".60"), orderItem.getTotal());
     }
 }

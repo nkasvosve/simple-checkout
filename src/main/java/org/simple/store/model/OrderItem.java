@@ -14,7 +14,35 @@ public class OrderItem {
         if(product == null || count <=0) {
             return BigDecimal.ZERO;
         }
-        return product.getPrice().multiply(new BigDecimal(count)).setScale(2);
+
+        BigDecimal price = product.getPrice();
+        BigDecimal discount;
+
+        if(product.getProductType() == ProductType.APPLE){
+            int freeApples = count/2;
+            if(freeApples > 0){
+                discount = price.multiply(new BigDecimal(freeApples)).setScale(2);
+                BigDecimal total = price.multiply(new BigDecimal(count)).setScale(2);
+                total = total. subtract(discount);
+                return total;
+            }
+        }
+        else if(product.getProductType() == ProductType.ORANGE){
+            int multiples = count/3;
+            if(multiples > 0){
+                int remainder = count % 3;
+
+                if(remainder > 0){
+                    BigDecimal remainderTotal = price.multiply(new BigDecimal(remainder));
+                    BigDecimal actual = price.multiply(new BigDecimal(2 * multiples))
+                            .add(remainderTotal).setScale(2);
+                    return actual;
+                }
+                BigDecimal actual = price.multiply(new BigDecimal(2 * multiples)).setScale(2);
+                return actual;
+            }
+        }
+        return price.multiply(new BigDecimal(count)).setScale(2);
     }
 
     public Product getProduct() {
