@@ -9,6 +9,7 @@ public class OrderTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void showAddingNullOrderItemIsNotAllowed(){
-
+        Order order = new Order();
+        order.addOrderItem(null);
     }
 }
