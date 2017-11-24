@@ -1,5 +1,7 @@
 package org.simple.store.model;
 
+import java.math.BigDecimal;
+
 /**
  * @author nickk
  */
@@ -7,6 +9,11 @@ public class OrderItem {
 
     private Product product;
     private int count;
+    private BigDecimal total;
+
+    public BigDecimal getTotal() {
+        return BigDecimal.ZERO;
+    }
 
     public Product getProduct() {
         return product;
