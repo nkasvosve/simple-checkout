@@ -9,3 +9,18 @@ oranges.
 the total cost
 
 ● For example: [ Apple, Apple, Orange, Apple ] => £2.05
+
+
+This project requires Java 8 and Apache Maven
+
+https://maven.apache.org/
+
+To build
+
+cd into project root and type:
+
+mvn install
+
+Using your favorite IDE, launch the application in
+
+org.simple.store.app.App
