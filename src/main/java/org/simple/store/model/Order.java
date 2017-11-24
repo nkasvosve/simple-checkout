@@ -23,6 +23,7 @@ public class Order {
         if(item == null){
             throw new IllegalArgumentException("NUll OrderItem found");
         }
+        orderItems.add(item);
     }
 
     @Override
