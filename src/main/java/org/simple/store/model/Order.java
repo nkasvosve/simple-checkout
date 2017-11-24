@@ -20,7 +20,9 @@ public class Order {
     }
 
     public void addOrderItem(OrderItem item){
-
+        if(item == null){
+            throw new IllegalArgumentException("NUll OrderItem found");
+        }
     }
 
     @Override
