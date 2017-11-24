@@ -32,4 +32,15 @@ public class OrderItemTest {
         orderItem.setCount(1);
         org.junit.Assert.assertEquals(BigDecimal.ZERO, orderItem.getTotal());
     }
+
+    @Test
+    public void checkTotalWIthItems(){
+        OrderItem orderItem = new OrderItem();
+        orderItem.setCount(2);
+        Product product = new Product();
+        product.setName("Orange");
+        product.setPrice(new BigDecimal("2.50"));
+        orderItem.setProduct(product);
+        org.junit.Assert.assertEquals(new BigDecimal("5.00"), orderItem.getTotal());
+    }
 }
