@@ -24,6 +24,10 @@ public class OrderItem {
         this.count = count;
     }
 
+    public boolean isValid(){
+        return count > -1 && product != null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
